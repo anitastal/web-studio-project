@@ -1,0 +1,56 @@
+.burger {
+  @media screen and(min-width:767px) {
+    display: none;
+  }
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.burger .icon-menu {
+  display: none;
+}
+.burger.is-open .icon-menu {
+  display: block;
+}
+.burger.is-open .icon-close {
+  display: none;
+}
+.burger:hover .icon-menu,
+.burger:focus .icon-menu,
+.burger:hover .icon-close,
+.burger:focus .icon-close {
+  fill: $accent-color;
+}
+.menu-conteiner {
+  // стиль для мобильного
+  @media screen and(max-width:767px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: $header-color;
+    padding: 48px 40px;
+    text-align: left;
+  }
+}
+.menu-conteiner.is-open {
+  display: block;
+}
+.menu-conteiner__wrap {
+  // стиль для телефона
+  @media screen and(max-width:767px) {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

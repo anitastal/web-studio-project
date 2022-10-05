@@ -1,0 +1,27 @@
+@mixin flex($dis: flex, $ai: center, $jc: center) {
+  display: $dis;
+  align-items: $ai;
+  justify-content: $jc;
+}
+
+@mixin font($fs: 14px, $fw: 400, $lh: 24px, $ls: 0.03em) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: calc($lh/$fs);
+  letter-spacing: $ls;
+}
+@mixin mob {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin comp {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}

@@ -1,0 +1,67 @@
+.clients {
+  @extend %section;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.17;
+    text-align: center;
+
+    @include comp {
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    @extend %list;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -15px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    height: 92px;
+    border: 1px solid $icons-color;
+    border-radius: 4px;
+
+    transition: border-color var(--main-transformation);
+  }
+
+  &__link:hover,
+  &__link:focus,
+  &__link:hover &__icon,
+  &__link:focus &__icon {
+    border-color: $accent-color;
+    fill: $accent-color;
+  }
+  &__icon {
+    width: 106px;
+    height: 60px;
+    fill: $icons-color;
+
+    transition: fill var(--main-transformation);
+  }
+}
+.clients__item {
+  width: calc((100% - 4 * 15px) / 2);
+  margin: 15px;
+
+  @media screen and(min-width: 768px) {
+    width: calc((100% - 6 * 15px) / 3);
+    margin: 15px;
+  }
+  @media screen and(min-width: 1200px) {
+    width: calc((100% - 12 * 15px) / 6);
+    margin: 15px;
+  }
+}

@@ -1,0 +1,227 @@
+.header {
+  position: relative;
+  background-color: $header-color;
+  border-bottom: 1px solid $border-color-header;
+
+  // падинги для хедера на мобилке
+  @include mob {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  @include tablet {
+    padding: 0;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__networks {
+    display: flex;
+    align-items: center;
+
+    @extend %list;
+    @extend %link;
+
+    margin-top: 64px;
+
+    @include tablet {
+      display: none;
+    }
+    & .item:not(:last-child) {
+      border-right: 1px solid $imput-color;
+      padding-right: 10px;
+    }
+    & .item:not(:first-child) {
+      padding-left: 10px;
+    }
+  }
+}
+
+/* стиль навигации */
+.nav {
+  @extend %list;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 50px;
+
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+
+    margin-right: 84px;
+
+    font-size: 14px;
+    line-height: 1.14;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-left: 93px;
+    margin-right: 273px;
+  }
+  &__link {
+    @extend %link;
+    position: relative;
+    display: block;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    color: $main-text-color;
+  }
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+
+  &__link--current {
+    position: relative;
+    color: $accent-color;
+  }
+
+  &__link--current::after {
+    @media screen and (min-width: 768px) {
+      content: '';
+
+      position: absolute;
+
+      bottom: -1px;
+      display: block;
+      width: 100%;
+      height: 4px;
+
+      background-color: $accent-color;
+      border-radius: 2px;
+    }
+  }
+}
+.contact {
+  @extend %list;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  gap: 30px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 0px;
+    gap: 8px;
+
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  &__item {
+    @media screen and (min-width: 1200px) {
+      gap: 30px;
+    }
+  }
+  &__link {
+    @extend %link;
+    font-weight: 500;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+
+    &.tel {
+      font-size: 34px;
+      color: $accent-color;
+
+      @media screen and (min-width: 768px) {
+        font-size: 12px;
+        color: $second-text-color;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: 16px;
+      }
+    }
+    &.mail {
+      font-size: 24px;
+      color: $second-text-color;
+
+      @media screen and (min-width: 768px) {
+        font-size: 12px;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: 16px;
+      }
+    }
+  }
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+}
+
+.contact__icon-mail,
+.contact__icon-tel {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    fill: currentColor;
+    margin-right: 8px;
+  }
+  @media screen and (min-width: 1200px) {
+    gap: 10px;
+  }
+
+  transition: fill var(--main-transformation);
+}
+.contact__icon-mail {
+  @media screen and (min-width: 1200px) {
+    width: 16px;
+    height: 12px;
+  }
+  color: currentColor;
+  width: 14px;
+  height: 10px;
+}
+.contact__icon-tel {
+  @media screen and (min-width: 1200px) {
+    height: 16px;
+  }
+  color: currentColor;
+  width: 10px;
+  height: 14px;
+}
+.contact__icon-mail:hover,
+.contact__icon-tel:hover {
+  fill: $accent-color;
+}
+
+.link-text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+
+  color: $accent-color;
+}

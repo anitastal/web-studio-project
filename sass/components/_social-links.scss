@@ -1,0 +1,54 @@
+.social__links {
+  @extend %list;
+  @include flex($dis: flex, $ai: center, $jc: center);
+
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+.networks {
+  @extend %list;
+
+  &__link {
+    @include flex($dis: flex, $ai: center, $jc: center);
+    border: transparent;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+
+    fill: $icons-color;
+
+    transition: fill var(--main-transformation), background-color var(--main-transformation);
+  }
+  &__link:hover,
+  &__link:focus {
+    fill: $header-color;
+    background-color: $accent-color;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.footer {
+  &__social-links {
+    @extend %list;
+    @include flex($dis: flex, $ai: center, $jc: center);
+    
+    gap: 10px;
+  }
+
+  &__social-links .networks__link {
+    fill: $header-color;
+    background-color: $background-color-social-futter;
+  }
+
+  &__social-links .networks__link:hover,
+  &__social-links .networks__link:focus {
+    fill: $header-color;
+    color: $background-color-social-futter;
+    background-color: $accent-color;
+  }
+}
